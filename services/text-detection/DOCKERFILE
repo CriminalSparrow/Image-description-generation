@@ -1,0 +1,24 @@
+# Выбери свою версию питона
+FROM python:3.10
+
+# Устанавливаем системные зависимости
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libgl1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Создаем рабочую директорию
+WORKDIR /app
+
+# Копируем requirements и устанавливаем зависимости
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Копируем все файлы в контейнер
+COPY . .
+
+# Открываем порт (по умолчанию FastAPI запускается на 8000)
+EXPOSE 8000
+
+# Запуск приложения
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  human-detection:
+    build: ./services/human-detection
+    container_name: human-detection
+    ports:
+      - "8001:8000"
+    restart: unless-stopped
+
+  image-captioning:
+    build: ./services/image-captioning
+    container_name: image-captioning
+    ports:
+      - "8002:8000"
+    restart: unless-stopped
+
+  text-detection:
+    build: ./services/text-detection
+    container_name: text-detection
+    ports:
+      - "8003:8000"
+    restart: unless-stopped
+
+  ui-detection:
+    build: ./services/ui-detection
+    container_name: ui-detection
+    ports:
+      - "8004:8000"
+    restart: unless-stopped
+
+  web-api:
+    build: ./web-api
+    container_name: web-api
+    ports:
+      - "8080:8000"
+    depends_on:
+      - human-detection
+      - image-captioning
+      - text-detection
+      - ui-detection
+    restart: unless-stopped
