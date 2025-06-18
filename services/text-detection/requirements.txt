@@ -4,3 +4,11 @@ numpy
 pillow  # Для обработки изображений (например, PIL.Image)
 python-multipart  # если вдруг будете обрабатывать загрузку файлов через API
 opencv-python-headless  # OpenCV для работы с изображениями, без GUI зависимостей
+
+torch
+torchvision
+opencv-python-headless  
+numpy
+scipy
+transformers         
+huggingface_hub 
