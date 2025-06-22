@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     libgl1 \
     && rm -rf /var/lib/apt/lists/*
 
+
 # Создаем рабочую директорию
 WORKDIR /app
 
@@ -14,8 +15,10 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+ENV TORCH_CUDA_ARCH_LIST="6.1"
+    
 # Копируем все файлы в контейнер
-COPY . .
+COPY app.py .
 
 # Открываем порт (по умолчанию FastAPI запускается на 8000)
 EXPOSE 8000

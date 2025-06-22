@@ -1,6 +1,10 @@
-fastapi
-uvicorn[standard]
-numpy
-pillow  # Для обработки изображений (например, PIL.Image)
-python-multipart  # если вдруг будете обрабатывать загрузку файлов через API
-opencv-python-headless  # OpenCV для работы с изображениями, без GUI зависимостей
+torch==2.7.0+cu128
+torchvision==0.22.0+cu128
+--extra-index-url https://download.pytorch.org/whl/cu128
+transformers
+pillow>=9.0.0
+fastapi>=0.68.0
+uvicorn>=0.15.0
+python-multipart 
+opencv-python-headless
+accelerate>=0.26.0
