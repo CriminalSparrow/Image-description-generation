@@ -17,8 +17,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 ENV TORCH_CUDA_ARCH_LIST="6.1"
     
-# Копируем все файлы в контейнер
-COPY app.py .
+# Копируем файлы в контейнер
+COPY app.py /app
 
 # Открываем порт (по умолчанию FastAPI запускается на 8000)
 EXPOSE 8000
