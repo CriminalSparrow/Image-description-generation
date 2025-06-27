@@ -1,42 +1,104 @@
-version: '3.9'
+version: "3.9"
 
 services:
-  human-detection:
-    build: ./services/human-detection
-    container_name: human-detection
+  caption_api:
+    build:
+      context: ./services/image-captioning
     ports:
-      - "8001:8000"
-    restart: unless-stopped
-
-  image-captioning:
-    build: ./services/image-captioning
-    container_name: image-captioning
-    ports:
-      - "8002:8000"
-    restart: unless-stopped
-
-  text-detection:
-    build: ./services/text-detection
-    container_name: text-detection
-    ports:
-      - "8003:8000"
-    restart: unless-stopped
-
-  ui-detection:
-    build: ./services/ui-detection
-    container_name: ui-detection
-    ports:
-      - "8004:8000"
-    restart: unless-stopped
-
-  web-api:
-    build: ./web-api
-    container_name: web-api
-    ports:
-      - "8080:8000"
+      - "8000:8000"
     depends_on:
-      - human-detection
-      - image-captioning
-      - text-detection
-      - ui-detection
-    restart: unless-stopped
+      - translation_api
+
+  translation_api:
+    build:
+      context: ./services/translator
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./services/translator/.env
+
+  streamlit_app:
+    build:
+      context: ./web-app
+    ports:
+      - "8501:8501"
+    depends_on:
+      - caption_api
+  tts_api:
+    build:
+      context: ./services/tts
+    ports:
+      - "8002:8002"
+
+
+
+
+
+
+
+# version: "3.10"
+
+# services:
+#   caption_api:
+#     build:
+#       context: ./services/image-captioning
+#     ports:
+#       - "8000:8000"
+#     depends_on:
+#       - translation_api
+
+#   translation_api:
+#     build:
+#       context: ./services/translator
+#     ports:
+#       - "8001:8001"
+#     env_file:
+#       - ./services/translator/.env
+
+
+
+
+
+
+# version: '3.9'
+
+# services:
+#   human-detection:
+#     build: ./services/human-detection
+#     container_name: human-detection
+#     ports:
+#       - "8001:8000"
+#     restart: unless-stopped
+
+#   image-captioning:
+#     build: ./services/image-captioning
+#     container_name: image-captioning
+#     ports:
+#       - "8002:8000"
+#     restart: unless-stopped
+
+#   text-detection:
+#     build: ./services/text-detection
+#     container_name: text-detection
+#     ports:
+#       - "8003:8000"
+#     restart: unless-stopped
+
+#   ui-detection:
+#     build: ./services/ui-detection
+#     container_name: ui-detection
+#     ports:
+#       - "8004:8000"
+#     restart: unless-stopped
+
+#   web-api:
+#     build: ./web-api
+#     container_name: web-api
+#     ports:
+#       - "8080:8000"
+#     depends_on:
+#       - human-detection
+#       - image-captioning
+#       - text-detection
+#       - ui-detection
+#     restart: unless-stopped

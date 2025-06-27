@@ -14,8 +14,6 @@ WORKDIR /app
 # Копируем requirements и устанавливаем зависимости
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
-ENV TORCH_CUDA_ARCH_LIST="6.1"
     
 # Копируем файлы в контейнер
 COPY app.py /app

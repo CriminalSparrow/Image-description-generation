@@ -21,7 +21,7 @@ COPY app.py /app
 COPY .env /app
 
 # Открываем порт (5005)
-EXPOSE 5005
+EXPOSE 8001
 
 # Запускаем FastAPI
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5005"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8001"]
