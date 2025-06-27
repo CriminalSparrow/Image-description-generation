@@ -20,7 +20,7 @@ Ilya Gerasimov - Text recognition
 
 В данной ветке был реализован image-captioning.  
 
-## Структура проекта:  
+## Реализованная в данной ветке структура проекта:  
 
 IMAGE-DESCRIPTION-GENERATION/  
 │  
