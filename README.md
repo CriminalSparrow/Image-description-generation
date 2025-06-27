@@ -26,23 +26,23 @@ IMAGE-DESCRIPTION-GENERATION/
 │  
 ├── docker-compose.yml            
 ├── README.md               
-│
-├── services/
+│  
+├── services/  
 │   ├── image-captioning/       # Сервис генерации описаний  
-│   │   ├── Dockerfile
-│   │   ├── app.py
-│   │   └── requirements.txt
+│   │   ├── Dockerfile  
+│   │   ├── app.py  
+│   │   └── requirements.txt  
 │   │  
 │   ├── translator/             # Сервис перевода текста (через OpenRouter API)  
 │   │   ├── Dockerfile  
 │   │   ├── app.py  
 │   │   ├── requirements.txt  
 │   │   └── .env                # Ключ для OpenRouter  
-│   │
+│   │  
 │   ├── tts/                    # Сервис озвучки текста (Edge TTS)  
-│   │   ├── Dockerfile  
-│   │   ├── app.py  
-│   │   └── requirements.txt  
+│   │   ├── Dockerfile   
+│   │   ├── app.py   
+│   │   └── requirements.txt   
 │  
 ├── streamlit-app/              # Веб-интерфейс пользователя на streamlit  
 │   ├── Dockerfile  
