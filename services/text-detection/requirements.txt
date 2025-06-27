@@ -1,14 +1,23 @@
-fastapi
-uvicorn[standard]
-numpy
-pillow  # Для обработки изображений (например, PIL.Image)
-python-multipart  # если вдруг будете обрабатывать загрузку файлов через API
-opencv-python-headless  # OpenCV для работы с изображениями, без GUI зависимостей
-
+# Core Deep Learning & NLP
 torch
 torchvision
-opencv-python-headless  
+transformers
+accelerate
+bitsandbytes
+easyocr
+
+# Data Handling & Scientific Computing
+pandas
 numpy
-scipy
-transformers         
-huggingface_hub 
+opencv-python-headless
+Pillow
+scikit-learn
+PyYAML
+
+# Metrics & Utilities
+shapely
+python-Levenshtein
+nltk
+natsort
+gdown
+tqdm

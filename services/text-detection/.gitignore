@@ -4,3 +4,4 @@ __pycache__
 .vscode/
 data/
 vk_summer/
+.gradio/
