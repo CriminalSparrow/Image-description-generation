@@ -7,15 +7,16 @@ RUN apt-get update && apt-get install -y \
     libgl1 \
     && rm -rf /var/lib/apt/lists/*
 
+
 # Создаем рабочую директорию
 WORKDIR /app
 
 # Копируем requirements и устанавливаем зависимости
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Копируем все файлы в контейнер
-COPY . .
+    
+# Копируем файлы в контейнер
+COPY app.py /app
 
 # Открываем порт (по умолчанию FastAPI запускается на 8000)
 EXPOSE 8000
