@@ -104,4 +104,3 @@ http://localhost:8501
 
 ![Скриншот веб интерфейса](https://github.com/user-attachments/assets/a8955d6b-8ddc-4ac4-984f-0ced7a2ce650)
 
-
