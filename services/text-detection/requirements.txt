@@ -1,7 +1,10 @@
+# UI
+gradio>=4.0.0
+
 # Core Deep Learning & NLP
 torch
 torchvision
-transformers
+transformers>=4.37.0
 accelerate
 bitsandbytes
 easyocr
@@ -12,6 +15,7 @@ numpy
 opencv-python-headless
 Pillow
 scikit-learn
+scipy
 PyYAML
 
 # Metrics & Utilities
